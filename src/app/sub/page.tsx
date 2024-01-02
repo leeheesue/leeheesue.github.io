@@ -4,7 +4,7 @@ import MainStyle from '@/styles/Main.module.scss';
 export default function Home() {
   return (
     <section>
-      <p className={MainStyle.test}>테스트</p>
+      <p className={MainStyle.test}>sub</p>
     </section>
   )
 }

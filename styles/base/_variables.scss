@@ -1,0 +1,61 @@
+$base: "/images" !default;
+$red: red;
+
+$font-pretendard:
+    "Pretendard",
+    Pretendard,
+    -apple-system,
+    BlinkMacSystemFont,
+    system-ui,
+    Roboto,
+    "Helvetica Neue",
+    "Segoe UI",
+    "Apple SD Gothic Neo",
+    "Malgun Gothic",
+    "Apple Color Emoji",
+    "Segoe UI Emoji",
+    "Segoe UI Symbol",
+    sans-serif;
+
+@mixin one-line-clamp {
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+@mixin line-clamp($val) {
+    display: -webkit-box;
+    overflow: hidden;
+    word-break: break-all;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: $val;
+    -webkit-box-orient: vertical;
+}
+
+@mixin blind {
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    margin: -0.1rem;
+    width: 0.1rem;
+    height: 0.1rem;
+}
+
+@function percentage($val, $wrapWidth) {
+    @return $val / $wrapWidth * 100%;
+}
+
+@mixin imgDimmed() {
+    &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: rgba(0, 0, 0, 0.05);
+    }
+}
+
