@@ -1,0 +1,32 @@
+.slide li {
+  width: auto;
+}
+
+.slide li:not(:last-child) {
+  margin-right: 0.8rem;
+}
+
+.slide li:first-child {
+  margin-left: 2rem;
+}
+
+.slide li:last-child {
+  margin-right: 2rem;
+}
+
+.chipList li {
+  display: inline-block;
+  list-style: none;
+  margin-right: 0.8rem;
+  margin-bottom: 1.2rem;
+}
+
+@media screen and (min-width: 1024px) {
+  .slide li:first-child {
+    margin-left: 0;
+  }
+
+  .slide li:last-child {
+    margin-right: 0;
+  }
+}

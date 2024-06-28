@@ -1,5 +1,142 @@
-@import "base/_variables";
+@import 'base/_variables';
+@import 'base/animation';
+@import url(https://fonts.googleapis.com/css?family=BenchNine:700);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300);
 
-.test {
-    color: $red;
+.section {
+  width: 100%;
+  height: 100%;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.wrapper {
+  width: 30rem;
+  position: relative;
+
+  a {
+    text-decoration: none;
+  }
+}
+
+.wrodContainer {
+  span,
+  a {
+    display: block;
+    margin-top: 1rem;
+    text-align: center;
+    font-family: 'BenchNine';
+    line-height: 0.8;
+    text-transform: uppercase;
+    letter-spacing: 0;
+  }
+
+  .myName {
+    animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.61, 0.355, 1) both;
+    cursor: default;
+  }
+
+  a {
+    &:hover {
+      animation: heartbeat 1.5s ease-in-out both;
+    }
+  }
+}
+
+$styles: (
+  1: (
+    color: #9bc5de,
+    font-size: 7.3rem,
+  ),
+  2: (
+    color: #90b3c9,
+    font-size: 8rem,
+  ),
+  3: (
+    color: #809bb0,
+    font-size: 6rem,
+  ),
+  4: (
+    color: #b68fa2,
+    font-size: 7rem,
+  ),
+  5: (
+    color: #d99ab5,
+    font-size: 8rem,
+  ),
+  // 6: (
+  //   color: #d99ab5,
+  //   font-size: 8rem,
+  // ),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+);
+
+@for $i from 1 through length($styles) {
+  $style: map-get($styles, $i);
+  .word#{$i} {
+    color: map-get($style, color);
+    font-size: map-get($style, font-size);
+  }
+}
+
+.bubble1 {
+  @include bubble(#99c5de, 10rem, 10rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: -7rem;
+  border-radius: 0 2rem 0 2rem;
+  font-size: 3rem;
+  line-height: 1;
+
+  &::after {
+    @include arrow(8.5rem, 9.5rem, #99c5de, 1.5rem);
+    transform: rotateY(180deg);
+  }
+}
+.bubble2 {
+  @include bubble(#90b3c9, 12rem, 15rem);
+  border-radius: 3rem 0 3rem 0;
+  left: 100%;
+  top: 4rem;
+
+  &::after {
+    @include arrow(4rem, -2rem, #90b3c9, 2.5rem);
+  }
+
+  img {
+    border-radius: 20px, 0, 20px, 0;
+    background: white;
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+}
+.bubble3 {
+  @include bubble(#90b2cb, 200px);
+  border-radius: 30px, 0, 30px, 0;
+  top: 183px;
+  left: -280px;
+
+  span.theArrow3 {
+    @include arrow(0, 250px, #90b2cb);
+    transform: rotate(180deg);
+  }
+}
+
+.bubble4 {
+  @include bubble(#809bae, 180px);
+  border-radius: 30px, 0, 30px, 0;
+  top: 260px;
+  left: 280px;
+
+  span.theArrow4 {
+    @include arrow(160px, -19px, #809bae);
+  }
 }
